@@ -1,9 +1,11 @@
+# Define a dictionary of favorite places for each person
 favorite_places = {
     'maya': ['Tokyo', 'Paris'],
     'leo': ['New York', 'London', 'Sydney'],
     'zara': ['Cairo']
 }
 
+# Loop through the dictionary and print each person's favorite places
 for name, places in favorite_places.items():
     if len(places) == 1:
         places_str = places[0]

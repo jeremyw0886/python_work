@@ -1,6 +1,7 @@
 print("🌍 Welcome to Your Travel Planning Assistant! 🧳\n")
 print("Here are some exciting destinations to consider:\n")
 
+# Define a dictionary of cities with their details
 cities = {
     'tokyo': {
         'country': 'japan',
@@ -9,6 +10,7 @@ cities = {
         'continent': 'asia',
         'famous_landmark': 'Tokyo Tower'
     },
+
     'lagos': {
         'country': 'nigeria',
         'population': '15 million',
@@ -16,6 +18,7 @@ cities = {
         'continent': 'africa',
         'famous_landmark': 'National Theatre'
     },
+    
     'new york': {
         'country': 'united states',
         'population': '8.3 million',
@@ -25,6 +28,7 @@ cities = {
     }
 }
 
+# Loop through the dictionary and print each city's information
 for city, info in cities.items():
     print(f"✈️  Destination: {city.title()}")
     print(f"📍 Located in: {info['country'].title()}")
