@@ -1,4 +1,4 @@
-# Creates a dictionary of programming terms and their definitions, then prints each term and definition.
+# Creates a dictionary of programming terms and their definitions
 glossary = {
     'Variable': 'A named storage location in memory that holds a value, '
                 'which can be changed during program execution.',
@@ -12,5 +12,6 @@ glossary = {
             'often using for or while to iterate over items or conditions.'
 }
 
+# Loop through the dictionary and print the term and definition
 for term, definition in glossary.items():
     print(f"{term}: {definition}\n")
