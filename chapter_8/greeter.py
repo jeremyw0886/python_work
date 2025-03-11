@@ -1,6 +1,18 @@
-def greet_user(username):
-    """Display a simple greeting."""
-    print(f"Hello, {username.title()}!")
+def get_formatted_name(first, last, middle=''):
+    """Generate a neatly formatted full name."""
+    full_name = f"{first} {last}"
+    return full_name.title()
 
 
-greet_user('jesse')
+while True:
+    print("\nPlease tell me your name:")
+    print("(enter 'q' at any time to quit)")
+
+    f_name = input("First name: ")
+    if f_name == 'q':
+        break
+    l_name = input("Last name: ")
+    if l_name == 'q':
+        break
+    formatted_name = get_formatted_name(f_name, l_name)
+    print(f"\nHello, {formatted_name}!")
