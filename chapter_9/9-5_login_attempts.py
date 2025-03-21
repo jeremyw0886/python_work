@@ -1,3 +1,4 @@
+# 9-5_login_attempts.py
 class User:
     """A model for a user profile."""
 
@@ -41,7 +42,7 @@ class User:
 
 
 # Create an instance
-user = User("jeremy", "warren", 38, "hendersonville", "software developer")
+user = User("jeremy", "warren", 30, "asheville", "software developer")
 
 # Print initial login attempts
 print(f"Initial login attempts: {user.login_attempts}")
