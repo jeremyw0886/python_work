@@ -25,9 +25,7 @@ try:
     user_ticket = user_numbers + [user_letter]
 except ValueError as e:
     print(f"Error: {e}")
-    print(
-        "Please restart and enter a valid ticket (e.g., '1234A' or '1 2 3 4 A')."
-    )
+    print("Please restart and enter a valid ticket.")
     exit()
 
 # Compare tickets
