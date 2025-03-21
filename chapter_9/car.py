@@ -1,3 +1,6 @@
+"""A class that can be used to represent a car."""
+
+
 class Car:
     """A simple attempt to represent a car."""
 
@@ -27,13 +30,3 @@ class Car:
     def increment_odometer(self, miles):
         """Add the given amount to the odometer reading."""
         self.odometer_reading += miles
-
-
-my_used_car = Car("subaru", "outback", 2013)
-print(my_used_car.get_descriptive_name())
-
-my_used_car.update_odometer(23500)
-my_used_car.read_odometer()
-
-my_used_car.increment_odometer(100)
-my_used_car.read_odometer()
