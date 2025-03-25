@@ -1,4 +1,4 @@
-# addition.py
+# 10-6_addition.py
 print("Enter two numbers to add them together.")
 
 # Prompt for two numbers
