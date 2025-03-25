@@ -1,0 +1,4 @@
+In Python you can define functions to reuse code efficiently.
+In Python you can use classes to model real-world objects.
+In Python you can store data in lists, tuples, and dictionaries.
+In Python you can read and write files to save information.
