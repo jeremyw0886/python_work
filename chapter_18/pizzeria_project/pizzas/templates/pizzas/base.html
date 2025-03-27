@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Pizzeria</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Pizzeria</h1>
+            <nav>
+                <a href="{% url 'pizzas:index' %}">Home</a>
+            </nav>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock content %}
+        </main>
+        <footer>
+            <p>&copy; 2025 Pizzeria</p>
+        </footer>
+    </body>
+
+</html>
