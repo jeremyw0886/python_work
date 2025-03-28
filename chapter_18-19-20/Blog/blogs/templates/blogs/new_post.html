@@ -1,10 +1,22 @@
 {% extends 'blogs/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}New Post{% endblock %}
+
+{% block page_header %}
+  <h2>New Post for "{{ blog.title }}"</h2>
+{% endblock page_header %}
 
 {% block content %}
-  <h2>New Post for "{{ blog.title }}"</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Add Post</button>
-  </form>
+<div class="row justify-content-center">
+  <div class="col-md-8 col-lg-6">
+    <form method="post" class="border rounded p-4 shadow-sm bg-light">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-success">Add Post</button>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock content %}

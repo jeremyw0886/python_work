@@ -51,10 +51,10 @@
           </ul> <!-- End of account-related links -->
 
           {% if user.is_authenticated %}
-            <from action="{% url 'accounts:logout' %}" method="post">
+            <form action="{% url 'accounts:logout' %}" method="post">
               {% csrf_token %}
               <button name="submit" class="btn btn-outline-secondary">Log out</button>
-            </from>
+            </form>
           {% endif %}
 
         </div> <!-- Closes collapsible parts of navbar -->

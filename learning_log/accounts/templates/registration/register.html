@@ -1,11 +1,12 @@
 {% extends 'learning_logs/base.html' %}
+{% load django_bootstrap5 %}
 
 {% block content %}
 
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button name="submit">Register</button>
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Register" %}
   </form>
 
 {% endblock %}

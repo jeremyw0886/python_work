@@ -1,29 +1,67 @@
 {% extends 'blogs/base.html' %}
+{% load django_bootstrap5 %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block page_header %}
+  {% if user.is_authenticated %}
+    <h2>Welcome back, {{ user.username }}!</h2>
+  {% else %}
+    <h2>Welcome to My Blog</h2>
+  {% endif %}
+{% endblock page_header %}
 
 {% block content %}
-  <h2>Blogs</h2>
-  <ul>
-    {% for blog in blogs %}
-      <li>
-        {{ blog.title }}
-        <!-- Link to create a new post for this specific blog -->
-        <a href="{% url 'blogs:new_post' blog.id %}">Add new post</a>
-      </li>
-    {% empty %}
-      <li>No blogs available.</li>
-    {% endfor %}
-  </ul>
+  {% if user.is_authenticated %}
+    <div class="row">
+      <!-- Blogs Section -->
+      <div class="col-md-6 mb-5">
+        <h4 class="mb-3">Your Blogs</h4>
+        {% if blogs %}
+          <div class="list-group">
+            {% for blog in blogs %}
+              <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ blog.title }}</span>
+                <a href="{% url 'blogs:new_post' blog.id %}" class="btn btn-sm btn-primary">Add Post</a>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-warning">You don't have any blogs yet.</div>
+        {% endif %}
+      </div>
 
-  <h2>All Posts</h2>
-  <ul>
-    {% for post in posts %}
-      <li>
-        <strong>{{ post.title }}</strong> in <em>{{ post.blog.title }}</em>
-        ({{ post.created_at|date:"M d, Y" }})
-        <a href="{% url 'blogs:edit_post' post.id %}">Edit</a>
-      </li>
-    {% empty %}
-      <li>No posts available.</li>
-    {% endfor %}
-  </ul>
+      <!-- Posts Section -->
+      <div class="col-md-6 mb-5">
+        <h4 class="mb-3">All Posts</h4>
+        {% if posts %}
+          <div class="list-group">
+            {% for post in posts %}
+              <div class="list-group-item">
+                <h6 class="mb-1">{{ post.title }}</h6>
+                <p class="mb-1">{{ post.content|linebreaksbr }}</p>
+                <small class="text-muted">
+                  in <strong>{{ post.blog.title }}</strong> • {{ post.created_at|date:"M d, Y" }}
+                </small>
+                <div class="mt-2">
+                  <a href="{% url 'blogs:edit_post' post.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="alert alert-info">No posts to show yet.</div>
+        {% endif %}
+      </div>
+    </div>
+  {% else %}
+    <div class="text-center p-5 bg-light border rounded shadow-sm">
+      <h3 class="mb-3">Start your blogging journey</h3>
+      <p class="lead">Log in or create an account to begin creating and managing blogs and posts.</p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="{% url 'accounts:login' %}" class="btn btn-outline-primary">Log In</a>
+        <a href="{% url 'accounts:register' %}" class="btn btn-primary">Register</a>
+      </div>
+    </div>
+  {% endif %}
 {% endblock content %}
