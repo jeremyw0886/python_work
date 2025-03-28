@@ -3,24 +3,33 @@
 
   <head>
     <meta charset="utf-8">
-    <title>My Blog</title>
+    <title>{% block title %}My Blog{% endblock %}</title>
   </head>
 
   <body>
     <header>
-      <h1>My Blog</h1>
       <nav>
-        <a href="{% url 'blogs:index' %}">Home</a>
-        <a href="{% url 'blogs:new_blog' %}">Create Blog</a>
+        <ul>
+          <li><a href="{% url 'blogs:index' %}">Home</a></li>
+          {% if user.is_authenticated %}
+          Hello, {{ user.username }}.
+          {% else %}
+          <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+          <li><a href="{% url 'accounts:register' %}">Register</a></li>
+          {% endif %}
+        </ul>
       </nav>
     </header>
-    <main>
-      {% block content %}
-      {% endblock content %}
-    </main>
-    <footer>
-      <p>&copy; 2025 My Blog</p>
-    </footer>
+
+    {% block content %}{% endblock content %}
+
+    {% if user.is_authenticated %}
+    <hr />
+    <form action="{% url 'accounts:logout' %}" method="post" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit">Log out</button>
+    </form>
+    {% endif %}
   </body>
 
 </html>
