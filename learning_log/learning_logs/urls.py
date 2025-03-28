@@ -1,12 +1,15 @@
 """Defines URL patterns for learning_logs."""
 
 from django.urls import path
+from django.contrib.auth import views as auth_views
 from . import views
 
 app_name = "learning_logs"
 urlpatterns = [
     # Home page.
     path("", views.index, name="index"),
+    # Login page.
+    path("login/", auth_views.LoginView.as_view(template_name="accounts/login.html"), name="login"),
     # Show all topics.
     path("topics/", views.topics, name="topics"),
     # Detail page for a single topic.
