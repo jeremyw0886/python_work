@@ -1,5 +1,7 @@
 name: "ll_project"
 type: "python:3.10"
+source:
+    root: "learning_log"
 
 relationships:
     database: "db:postgresql"
