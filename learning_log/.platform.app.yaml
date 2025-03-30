@@ -15,7 +15,7 @@ web:
             passthru: true
         "/static/":
             root: "static"
-            expires: 1h
+            expires: "1h"
             allow: true
 
 # The size of the persistent disk of the application (in MB).
