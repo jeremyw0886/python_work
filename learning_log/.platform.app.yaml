@@ -13,7 +13,7 @@ web:
     locations:
         "/":
             passthru: true
-        "/static/";
+        "/static/":
             root: "static"
             expires: 1h
             allow: true
@@ -30,7 +30,7 @@ mounts:
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
     build: |
-        pip install -- upgrade pip
+        pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements_remote.txt
 
