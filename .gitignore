@@ -3,3 +3,5 @@ pyproject.toml
 test_example.py
 test_example.cpython-312-pytest-8.3.4.pyc
 __pycache__/
+ll_env/
+*.sqlite3
